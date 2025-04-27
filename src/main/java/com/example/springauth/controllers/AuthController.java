@@ -65,10 +65,7 @@ public class AuthController {
                 refreshToken,
                 userDetails.getId(),
                 userDetails.getUsername(),
-                userDetails.getEmail(),
-                userDetails.getAuthorities().stream()
-                        .map(item -> item.getAuthority())
-                        .collect(Collectors.toList())
+                userDetails.getEmail()
                ));
     }
 
@@ -118,8 +115,8 @@ public class AuthController {
                     refreshToken,
                     userDetails.getId(),
                     userDetails.getUsername(),
-                    userDetails.getEmail(),
-                    roles));
+                    userDetails.getEmail()
+                    ));
         }
         
         return ResponseEntity.badRequest().body(new MessageResponse("Error: Invalid refresh token!"));
